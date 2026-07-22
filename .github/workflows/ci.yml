@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t backstage-ai-workflow-capabilities:ci .
+
+  helm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+      - run: helm lint deploy/helm/ai-workflow-capabilities
+      - run: helm template portfolio deploy/helm/ai-workflow-capabilities > rendered-manifests.yaml
+
+  azure-bicep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/cli@v2
+        with:
+          inlineScript: az bicep build --file deploy/azure/main.bicep --stdout > /dev/null

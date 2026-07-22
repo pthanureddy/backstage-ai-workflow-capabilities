@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ai-workflow-capabilities
+  title: AI Workflow Capabilities
+  description: Frontend and backend Backstage plugin packages for governed AI-assisted developer workflows.
+  annotations:
+    github.com/project-slug: pthanureddy/backstage-ai-workflow-capabilities
+spec:
+  type: library
+  lifecycle: experimental
+  owner: user:default/thanu-reddy
+  system: developer-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: developer-platform
+  description: Portfolio developer-platform system used to group the plugin packages.
+spec:
+  owner: user:default/thanu-reddy

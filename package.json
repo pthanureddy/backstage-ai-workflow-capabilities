@@ -1,0 +1,21 @@
+{
+  "name": "backstage-ai-workflow-capabilities",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backstage frontend and backend plugins for governed AI-assisted developer workflows",
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0"
+  },
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "build": "pnpm --filter @pthanureddy/ai-workflow-common build && pnpm --filter @pthanureddy/backstage-plugin-ai-workflows-backend build && pnpm --filter @pthanureddy/backstage-plugin-ai-workflows build",
+    "test": "pnpm --filter @pthanureddy/ai-workflow-common test && pnpm --filter @pthanureddy/backstage-plugin-ai-workflows-backend test && pnpm --filter @pthanureddy/backstage-plugin-ai-workflows test",
+    "check": "pnpm build && pnpm test",
+    "start:backend": "pnpm --filter @pthanureddy/backstage-plugin-ai-workflows-backend start"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
