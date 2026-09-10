@@ -3,3 +3,12 @@ packages:
   - plugins/*
 allowBuilds:
   esbuild: true
+
+auditConfig:
+  # Remove when Backstage supports the patched React Router 7.18.0+ line.
+  ignoreGhsas:
+    - GHSA-wrjc-x8rr-h8h6
+    - GHSA-337j-9hxr-rhxg
+
+overrides:
+  qs@<6.16.0: 6.16.0

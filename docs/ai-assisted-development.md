@@ -21,4 +21,4 @@ This repository treats AI assistance as a review workflow, not an autonomous aut
 
 ## Limitations
 
-The repository does not measure productivity gains and does not claim that AI-generated output is correct. Any provider integration would require Volvo Group's approved tools, data classifications, security controls and review process.
+The repository does not measure productivity gains and does not claim that AI-generated output is correct. Any provider integration would require the adopting organization's approved tools, data classifications, security controls and review process.

@@ -9,4 +9,4 @@
 7. Demo the workflow using a non-sensitive Backstage entity and synthetic pull-request reference.
 8. Update architecture or integration documentation before merge.
 
-The repository is a portfolio project, so it does not claim participation in Volvo Group's internal ceremonies, code reviews or deployment process.
+The repository is a portfolio project, so it does not claim participation in an organization's internal ceremonies, code reviews or deployment process.

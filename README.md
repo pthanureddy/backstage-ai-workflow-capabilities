@@ -2,7 +2,7 @@
 
 Full-stack Backstage plugin packages for governed AI-assisted developer workflows. The React frontend lets an engineer select an allowlisted workflow, provide a Backstage entity reference and optional GitHub pull-request URL, and request a review plan. The TypeScript backend validates the request and returns deterministic steps with risk and approval metadata.
 
-This is an independent portfolio project. It is not connected to Volvo Group, does not use internal data and does not claim deployment to an enterprise Backstage portal.
+This is an independent portfolio project. It is not connected to an employer or customer, does not use internal data and does not claim deployment to an enterprise Backstage portal.
 
 ## What it demonstrates
 
@@ -35,6 +35,7 @@ Use Node 22 or 24 and pnpm:
 ```bash
 corepack enable
 pnpm install --frozen-lockfile
+pnpm audit --audit-level=moderate
 pnpm check
 ```
 
@@ -73,7 +74,8 @@ The Azure Bicep file is a reviewable deployment descriptor, not evidence of a li
 - No authentication, permission policy, provider credentials, durable audit store or rate limiting is included.
 - GitHub pull-request URLs are validated but the GitHub API is not called.
 - The React page uses plain semantic elements so the repository remains focused on plugin architecture rather than a design system.
-- This is not a production deployment or evidence of work in Volvo Group's internal portal.
+- A full `pnpm audit` reports two moderate React Router 6 advisories and no high or critical findings. The Backstage frontend API packages require `react-router-dom` 6, while the advisories identify React Router 7.18.0 as the first patched release. The workspace names those two temporary exceptions explicitly, and CI rejects any other moderate-or-higher finding.
+- This is not a production deployment or evidence of work in an organization's internal portal.
 
 ## Resume-safe description
 
